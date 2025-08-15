@@ -65,18 +65,6 @@ Bu proje, [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create
 
 ---
 
-## Geliştirme Sunucuları ve Uç Noktalar
-
-* **Next.js Uygulaması**: [http://localhost:3000](http://localhost:3000)
-
-  * Başlangıç sayfası `pages/index.js` altında düzenlenebilir. Kaydettiğinizde sayfa otomatik yenilenir.
-  * API Rotaları: [http://localhost:3000/api/\*](http://localhost:3000/api/*) (örn. `/api/hello` → `pages/api/hello.js`).
-* **JSON Server**: [http://localhost:3001](http://localhost:3001)
-
-  * Varsayılan olarak `db.json` (repo kökünde) kaynağını servis edecek şekilde yapılandırın.
-
----
-
 ## Konfigürasyon (MQTT / DEMO Modu)
 
 Uygulama, MQTT üzerinden canlı veri çekimini destekler. Değerlendirme sırasında yaşanan broker yanıtının tek kayıt ve tüm alanların `0` dönmesi durumuna karşı **DEMO modu** ile **dummy data** üzerinden grafikler devreye alınmıştır.
