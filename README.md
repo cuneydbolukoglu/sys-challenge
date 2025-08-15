@@ -1,40 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Proje README
 
-## Getting Started
+Bu proje, [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app) ile başlatılmış bir **Next.js** uygulamasıdır. Arayüz bileşenleri için **Ant Design (antd)**, grafikler için **echarts-for-react**, durum yönetimi için **Zustand**, MQTT tabanlı veri akışı için **mqtt**, ve lokal sahte API için **json-server** kullanılmaktadır.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Mimari ve Bileşenler
+
+* **Next.js (UI / Pages)**: Uygulamanın istemci ve sunucu tarafı render katmanı.
+* **Ant Design (antd)**: Formlar, tablolar ve genel UI bileşenleri.
+* **echarts-for-react**: Grafiklerin React bileşenleri üzerinden gösterimi.
+* **Zustand**: Hafif durum yönetimi (store tabanlı yaklaşım).
+* **mqtt**: MQTT broker’a bağlanarak gerçek zamanlı veri tüketimi.
+* **json-server**: Lokal geliştirmede sahte REST API ve statik veri sağlayıcı.
+* **concurrently (devDependency)**: Geliştirme sırasında Next.js ve JSON Server’ı aynı anda çalıştırma.
+
+---
+
+## Kullanılan Paketler
+
+```json
+{
+  "dependencies": {
+    "antd": "^5.27.0",
+    "echarts-for-react": "^3.0.2",
+    "json-server": "^1.0.0-beta.3",
+    "mqtt": "^5.14.0",
+    "next": "15.4.6",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "zustand": "^5.0.7"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  }
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> Versiyonlar `package.json` ile senkron tutulmalıdır.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Önkoşullar
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+* **Node.js** 18+ (önerilir) ve **npm**/**yarn**/**pnpm**/**bun**
+* Geliştirme ortamında **3000** (Next.js) ve **3001** (JSON Server) portlarının boş olması
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Kurulum ve Çalıştırma
 
-To learn more about Next.js, take a look at the following resources:
+1. Bağımlılıkların kurulumu:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+   ```bash
+   npm install
+   ```
+2. Geliştirme ortamını başlatma (Next.js + JSON Server):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm run dev
+   ```
 
-## Deploy on Vercel
+> Uygulama: [http://localhost:3000](http://localhost:3000)
+> JSON Server: [http://localhost:3001](http://localhost:3001)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## Geliştirme Sunucuları ve Uç Noktalar
+
+* **Next.js Uygulaması**: [http://localhost:3000](http://localhost:3000)
+
+  * Başlangıç sayfası `pages/index.js` altında düzenlenebilir. Kaydettiğinizde sayfa otomatik yenilenir.
+  * API Rotaları: [http://localhost:3000/api/\*](http://localhost:3000/api/*) (örn. `/api/hello` → `pages/api/hello.js`).
+* **JSON Server**: [http://localhost:3001](http://localhost:3001)
+
+  * Varsayılan olarak `db.json` (repo kökünde) kaynağını servis edecek şekilde yapılandırın.
+
+---
+
+## Konfigürasyon (MQTT / DEMO Modu)
+
+Uygulama, MQTT üzerinden canlı veri çekimini destekler. Değerlendirme sırasında yaşanan broker yanıtının tek kayıt ve tüm alanların `0` dönmesi durumuna karşı **DEMO modu** ile **dummy data** üzerinden grafikler devreye alınmıştır.
+
+* **DEMO Modu**: Canlı akış yerine sahte veriyle grafiklerin çalışmasını gösterir.
+* **Topic Değişimi**: Canlı veri akışı sağlandığında DEMO kapatılarak topic `$SYS` (veya proje içinde tanımlı sistem topic’i) olarak ayarlanır.
+
+> **Not:** Projede bir `DEMO` değişkeni bulunmaktadır. Değişken adlandırması ve kullanım yeri kod içinde tanımlıdır. İhtiyaç halinde `.env.local` dosyasında aşağıdaki örneğe benzer şekilde ayarlanabilir (gerçek isimleri proje koduyla eşleştiriniz):
+>
+> ```env
+> # Örnek/temsili anahtarlar — kendi kodunuzdaki isimlerle eşleştiriniz
+> NEXT_PUBLIC_DEMO=true
+> NEXT_PUBLIC_MQTT_URL=wss://broker.example.com:8083/mqtt
+> NEXT_PUBLIC_MQTT_USERNAME=
+> NEXT_PUBLIC_MQTT_PASSWORD=
+> NEXT_PUBLIC_MQTT_TOPIC=$SYS/#
+> ```
+
+---
+
+## JSON Server
+
+* Varsayılan olarak `db.json` dosyasını baz alır ve REST uç noktaları üretir.
+* Örnek kullanım:
+
+  ```bash
+  npx json-server --watch db.json --port 3001
+  ```
+* `npm run dev` komutu, **concurrently** aracılığıyla Next.js ve JSON Server’ı paralel başlatacak şekilde ayarlanmıştır (package.json’daki script’e göre).
+
+---
+
+## Komutlar
+
+* Geliştirme:
+
+  ```bash
+  npm run dev
+  ```
+* (Opsiyonel) JSON Server’ı tek başına çalıştırma:
+
+  ```bash
+  npx json-server --watch db.json --port 3001
+  ```
+
+> Diğer paket yöneticileri ile çalışma: `yarn dev`, `pnpm dev`, `bun dev` (script’leriniz destekliyorsa).
+
+---
