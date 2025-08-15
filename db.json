@@ -1,0 +1,67 @@
+{
+  "customer": [
+    {
+      "id": "1",
+      "Fullname": "Ahmet Yılmaz",
+      "City": "İstanbul",
+      "Age": 28,
+      "Gender": "M",
+      "Segment": "G",
+      "TotalAmount": 1250.75
+    },
+    {
+      "id": "3",
+      "Fullname": "Mehmet Kaya",
+      "City": "İzmir",
+      "Age": 45,
+      "Gender": "M",
+      "Segment": "A",
+      "TotalAmount": 2780
+    },
+    {
+      "id": "4",
+      "Fullname": "Fatma Çelik",
+      "City": "Bursa",
+      "Age": 62,
+      "Gender": "F",
+      "Segment": "E",
+      "TotalAmount": 1890.25
+    },
+    {
+      "id": "5",
+      "Fullname": "Caner Aksoy",
+      "City": "Antalya",
+      "Age": 23,
+      "Gender": "M",
+      "Segment": "G",
+      "TotalAmount": 980
+    },
+    {
+      "id": "3ef2e5467ff128",
+      "Fullname": "Cüneyd Bölükoğlu",
+      "Age": 34,
+      "City": "İstanbul",
+      "Gender": "M",
+      "Segment": "A",
+      "TotalAmount": 123.54
+    },
+    {
+      "id": "a49533b75574",
+      "Fullname": "Test Cüneyd",
+      "Age": 34,
+      "City": "İstanbul",
+      "Gender": "M",
+      "Segment": "G",
+      "TotalAmount": 123.213
+    },
+    {
+      "id": "6ca5eef256a138",
+      "Fullname": "Derya Baş",
+      "Age": 63,
+      "City": "Bursa",
+      "Gender": "F",
+      "Segment": "E",
+      "TotalAmount": 1200.5
+    }
+  ]
+}
