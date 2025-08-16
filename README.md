@@ -72,16 +72,7 @@ Uygulama, MQTT üzerinden canlı veri çekimini destekler. Değerlendirme sıras
 * **DEMO Modu**: Canlı akış yerine sahte veriyle grafiklerin çalışmasını gösterir.
 * **Topic Değişimi**: Canlı veri akışı sağlandığında DEMO kapatılarak topic `$SYS` (veya proje içinde tanımlı sistem topic’i) olarak ayarlanır.
 
-> **Not:** Projede bir `DEMO` değişkeni bulunmaktadır. Değişken adlandırması ve kullanım yeri kod içinde tanımlıdır. İhtiyaç halinde `.env.local` dosyasında aşağıdaki örneğe benzer şekilde ayarlanabilir (gerçek isimleri proje koduyla eşleştiriniz):
->
-> ```env
-> # Örnek/temsili anahtarlar — kendi kodunuzdaki isimlerle eşleştiriniz
-> NEXT_PUBLIC_DEMO=true
-> NEXT_PUBLIC_MQTT_URL=wss://broker.example.com:8083/mqtt
-> NEXT_PUBLIC_MQTT_USERNAME=
-> NEXT_PUBLIC_MQTT_PASSWORD=
-> NEXT_PUBLIC_MQTT_TOPIC=$SYS/#
-> ```
+> **Not:** Projede bir `DEMO` değişkeni bulunmaktadır. Değişken adlandırması ve kullanım yeri kod içinde tanımlıdır.
 
 ---
 
