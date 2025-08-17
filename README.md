@@ -85,22 +85,3 @@ Uygulama, MQTT üzerinden canlı veri çekimini destekler. Değerlendirme sıras
   npx json-server --watch db.json --port 3001
   ```
 * `npm run dev` komutu, **concurrently** aracılığıyla Next.js ve JSON Server’ı paralel başlatacak şekilde ayarlanmıştır (package.json’daki script’e göre).
-
----
-
-## Komutlar
-
-* Geliştirme:
-
-  ```bash
-  npm run dev
-  ```
-* (Opsiyonel) JSON Server’ı tek başına çalıştırma:
-
-  ```bash
-  npx json-server --watch db.json --port 3001
-  ```
-
-> Diğer paket yöneticileri ile çalışma: `yarn dev`, `pnpm dev`, `bun dev` (script’leriniz destekliyorsa).
-
----
